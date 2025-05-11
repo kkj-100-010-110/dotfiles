@@ -1,0 +1,7 @@
+[user]
+	name = kkj-100-010-110
+	email = gjk.100.010.110@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = vim --wait
