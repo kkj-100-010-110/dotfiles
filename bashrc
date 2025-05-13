@@ -114,9 +114,14 @@ if ! shopt -oq posix; then
 fi
 
 # LOCALE setup
+# setting up below causes 'sort' not to work
+#export LANG=en_GB.UTF-8
+#export LC_CTYPE=en_GB.UTF-8
+#export LC_ALL=en_GB.UTF-8
+#export LANGUAGE=en_GB.UTF-8
 
-export LANG=en_GB.UTF-8
-export LC_CTYPE=en_GB.UTF-8
-export LC_ALL=en_GB.UTF-8
-export LANGUAGE=en_GB.UTF-8
+export LANG="en_US.UTF-8"
+export LC_COLLATE="C"
+export LC_TIME="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
 
