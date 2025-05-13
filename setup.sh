@@ -18,7 +18,7 @@ echo -e "\033[96m==> Installing parsing libraries...\033[0m"
 sudo apt install -y libjansson-dev
 
 echo -e "\033[96m==> Installing CLI utilities...\033[0m"
-sudo apt install -y ack tree
+sudo apt install -y ack tree gawk
 
 echo -e "\033[96m==> Installing Vim plugin dependencies...\033[0m"
 sudo apt install -y exuberant-ctags python3-dev nodejs npm
