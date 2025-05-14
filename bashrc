@@ -75,23 +75,10 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -l'
-alias lla='ls -al'
-#alias la='ls -A'
-#alias l='ls -CF'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -114,14 +101,11 @@ if ! shopt -oq posix; then
 fi
 
 # LOCALE setup
-# setting up below causes 'sort' not to work
-#export LANG=en_GB.UTF-8
-#export LC_CTYPE=en_GB.UTF-8
-#export LC_ALL=en_GB.UTF-8
-#export LANGUAGE=en_GB.UTF-8
-
 export LANG="en_US.UTF-8"
+export LC_CTYPE="ko_KR.UTF-8"
 export LC_COLLATE="C"
 export LC_TIME="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
+# Don't override with LC_ALL
+unset LC_ALL
 

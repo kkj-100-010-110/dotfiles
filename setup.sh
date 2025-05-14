@@ -1,26 +1,23 @@
 #!/bin/bash
 
+DOTFILES_DIR="$HOME/.dotfiles"
+
 set -e # exit when an error occurs
 
-echo -e "\033[96m==> Updating system packages...\033[0m"
-sudo apt update && sudo apt upgrade -y
+echo -e "\033[96m[+] Setting up locale...\033[0m"
+bash "$DOTFILES_DIR/set_locale.sh"
 
-echo -e "\033[96m==> Installing essential development tools...\033[0m"
-sudo apt install -y git gcc g++ make cmake gdb valgrind vim
+echo -e "\033[96m[+] Installing vim-plug...\033[0m"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo -e "\033[96m==> Installing networking utilities...\033[0m"
-sudo apt install -y net-tools iputils-ping curl wget tcpdump nmap traceroute vsftpd tmux ufw
+echo -e "\033[96m[+] Linking dotfiles...\033[0m"
+ln -sf "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
+ln -sf "$DOTFILES_DIR/bash_aliases" "$HOME/.bash_aliases"
+ln -sf "$DOTFILES_DIR/vimrc" "$HOME/.vimrc"
+ln -sf "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
 
-echo -e "\033[96m==> Installing database...\033[0m"
-sudo apt install -y sqlite3 libsqlite3-dev
+echo -e "\033[96m[+] Installing Vim plugins...\033[0m"
+vim +PlugInstall +qall
 
-echo -e "\033[96m==> Installing parsing libraries...\033[0m"
-sudo apt install -y libjansson-dev
-
-echo -e "\033[96m==> Installing CLI utilities...\033[0m"
-sudo apt install -y ack tree gawk
-
-echo -e "\033[96m==> Installing Vim plugin dependencies...\033[0m"
-sudo apt install -y exuberant-ctags python3-dev nodejs npm
-
-echo -e "\033[96m==> Setup complete!\033[0m"
+echo -e "\033[92m✓ 'Setup done!\033[0m"
